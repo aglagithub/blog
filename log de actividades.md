@@ -45,11 +45,20 @@ proyecto profesor: https://github.com/luismavlo/NODE-GEN-26
 [2023-08-01]: cambio contraseña: Nota: en el usuario 1 de prueba: password = pass12345 
 
 [2023-08-02]:  Creación repo git hub:
-git init
-git commit -m "first commit"
-git branch -M main
-git remote add origin https://github.com/aglagithub/blog.git
-git push -u origin main
+               git init
+               git add .
+               git commit -m "first commit"
+               git branch -M main
+               git remote add origin https://github.com/aglagithub/blog.git
+               git push -u origin main
+[2023-08-02]:  Carga snippets del profesor
+[2023-08-11]:  Funcionalidad de posts para el blog: tabla en base de datos
+[2023-08-11]:  Creación y proteccion de rutas para los posts
+[2023-08-11]: Creación, de posts. findOnePost, updatePost,deletePost
+[2023-08-11]: Middleware para encontrar si un post id es válido 
+[2023-08-12]: Creción de comments 
+
+
 
 
 

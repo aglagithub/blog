@@ -13,6 +13,8 @@ const morgan = require('morgan');
 // routes
 const userRoutes = require('./routes/user.route')
 const authRoutes = require('./routes/auth.route');
+const postRoutes = require('./routes/post.route');
+
 const AppError = require('./utils/appError');
 const globalErrorHandler = require('./controllers/error.controller');
 
@@ -29,6 +31,7 @@ if (process.env.NODE_ENV === 'development'){
 //routes
 app.use('/api/v1/users', userRoutes)
 app.use('/api/v1/auth', authRoutes)
+app.use('/api/v1/posts', postRoutes)
 
 //captura de rutas inexistentes
 app.all('*', (req, res, next) => {

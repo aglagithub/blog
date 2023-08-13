@@ -6,11 +6,17 @@ const userController = require('./../controllers/user.controller');
 const userMiddleware = require('./../middlewares/user.middleware')
 const validationMiddleware = require('./../middlewares/validations.middleware')
 
+const authMiddleware =require('./../middlewares/auth.middleware')
+
 const router = express.Router();
+
+router.use(authMiddleware.protect) //proteccion de rutas de aqui en adelante
 
 router.get('/', userController.findAllUsers);
 
 //router.use('/:id', userMiddleware.validUser)
+
+//router.use(authMiddleware.restricTo('admin','user'));
 
 router.use('/:id', userMiddleware.validUser)
     .route('/:id')
