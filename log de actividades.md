@@ -85,5 +85,5 @@ git push -u origin main
 sus comentarios
 [S5-D2] : Obtención de las url de las imágenes Del perfil, de todos los post y
 sus comentarios
-[S5-D3] : Wensocket Parte 1
+[S5-D3] : Winsocket Parte 1
 
