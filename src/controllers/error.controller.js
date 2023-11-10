@@ -1,7 +1,8 @@
 
 const AppError = require('./../utils/appError')
+const Error = require('../models/error.model')
 
-//funciones mahejadoras de error
+//funciones manejadoras de error
 const handleCastError22001 = () => {
     return new AppError('The number of charecters is grater than expected', 400)
 }
@@ -20,7 +21,13 @@ const handleJWTExpiredError = () => {
     return new AppError('Your token has expired!, Please Login Again', 401)
 }
 //funciones mahejadoras de error.end
-const sendErrorDev = (err, res) => {
+const sendErrorDev = async(err, res) => {
+    await Error.create({
+        status: err.status,
+        message:err.message,
+        stack:err.stack,
+
+    });
     console.log(err);
     return res.status(err.statusCode).json({
         status: err.status,
@@ -31,6 +38,7 @@ const sendErrorDev = (err, res) => {
 }
 
 const sendErrorProd = (err, res) => {
+     
     console.log(err)
     if (err.isOperational) {
         // operacional, trusted error : send message to the client

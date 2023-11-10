@@ -10,11 +10,14 @@ const validationMiddleware = require('../middlewares/validations.middleware');
 const userMiddleware = require('../middlewares/user.middleware');
 const authMiddleware = require('../middlewares/auth.middleware')
 
+const upload  = require ('./../utils/multer')
+
 //Routes
 const router = express.Router();
 
 router.post(
   '/signup',
+  upload.single('profileImgUrl'),
   validationMiddleware.createUserValidation,
   authController.signUp
 );

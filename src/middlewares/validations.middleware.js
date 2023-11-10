@@ -32,7 +32,8 @@ exports.createUserValidation = [
     .matches(/[a-zA-Z]/).withMessage('Password must have at least one letter'),
     body('description')
     .notEmpty()
-    .withMessage('Description is required'),
+        .isLength({ min: 10, max: 50 })
+        .withMessage('Description must be at least 10 characters long and max 50'),
     validFields,
 ]
 
@@ -61,5 +62,17 @@ exports.updatePasswordValidation = [
 exports.createPostValidation = [
     body('title').notEmpty().withMessage('Title is required'),
     body('content').notEmpty().withMessage('Content is required'),
+    validFields,
+];
+
+//validación de creación de comment
+exports.createCommentValidation = [
+    body('text').notEmpty().withMessage('Text is required'),
+    body('postId').notEmpty().withMessage('PostId is required'),
+    validFields,
+];
+
+exports.updateCommentValidation = [
+    body('text').notEmpty().withMessage('Text is required'),
     validFields,
 ];

@@ -5,7 +5,7 @@ const User = require('../models/user.model');
 const { promisify } = require('util')
 require('dotenv').config();
 
-
+//proteccion de rutas
 exports.protect = catchAsync(async (req, res, next) => {
   //console.log(req.headers.authorization);
   // 1. Extract taken from header
@@ -54,7 +54,7 @@ exports.protect = catchAsync(async (req, res, next) => {
     }
   }
 
-  //6. Adjuntar el usuario en session
+  //6. Adjuntar el usuario en session (***)
 
   req.sessionUser = user;
   next();
